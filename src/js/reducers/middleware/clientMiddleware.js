@@ -9,7 +9,6 @@ export const thunk = store => {
   const getState = store.getState;
 
   return next => action => {
-    console.log(action.type)
     if (typeof action === 'function') {
       return action(dispatch, getState);
     }

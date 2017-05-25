@@ -16,10 +16,9 @@ export default class PictureSelector extends Component {
   }
 
   _orderItemsByVoteCount(items) {
-    //return items.sort((firstItem, secondItem) => {
-    //  return firstItem.voteCount < secondItem.voteCount;
-   // });
-   return items;
+    return items.sort((firstItem, secondItem) => {
+      return firstItem.voteCount < secondItem.voteCount;
+    });
   }
 
   render() {

@@ -3,7 +3,7 @@ export const styles = {
         display: 'inline-block'
     },
     listItemSelected: {
-        //background: 'yellow',
+        background: 'yellow',
         display: 'inline-block'
     }
 };
