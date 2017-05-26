@@ -7,7 +7,7 @@ export default class PictureWithFrame extends Component {
     const image = require(`../../../../assets/images/${this.props.pictureName}.jpg`); // eslint-disable-line global-require, import/no-dynamic-require
     const alternateImage = 'picture-with-frame';
     return (
-      <img style={styles.picture} src={image} alt={alternateImage} />); // eslint-disable-line react/jsx-filename-extension, max-len
+      <img style={styles.picture[this.props.selectedClass]} src={image} alt={alternateImage} />); // eslint-disable-line react/jsx-filename-extension, max-len
   }
 
   render() {

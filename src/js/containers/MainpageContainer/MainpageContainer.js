@@ -8,8 +8,8 @@ import React, { Component } from 'react'; // eslint-disable-line import/first
 import Radium, { StyleRoot } from 'radium'; // eslint-disable-line import/first
 import * as ViewActions from '../../actions';
 import PictureSelector from '../PictureSelector/PictureSelector';
-import  PageSwitcher  from '../../components/PageSwitcher/PageSwitcher';
-
+import PageSwitcher from '../../components/PageSwitcher/PageSwitcher';
+import PictureGridContainer from '../PictureGridContainer/PictureGridContainer';
 
 @Radium
 class MainpageContainer extends Component {
@@ -28,7 +28,10 @@ class MainpageContainer extends Component {
           selectedPictureId={this.props.homepage.selectedPictureId}
           actions={this.props.actions}
           pageId={PageMappings.MAINPAGE}
-        />
+          />
+        <PictureGridContainer
+          pictureList={this.props.homepage.pictureList}
+          />
       </div>
     </StyleRoot>
     );
@@ -50,4 +53,4 @@ mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps,
-mapDispatchToProps)(MainpageContainer);
+  mapDispatchToProps)(MainpageContainer);
