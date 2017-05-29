@@ -17,20 +17,18 @@ class MainpageContainer extends Component {
   static fetchData() {
     return getData(apiMappings.MAINPAGE_API);
   }
-
+  /* /*  <PageSwitcher linkAddress={PageMappings.OTHERPAGE} />
+          <PictureSelector
+            items={this.props.homepage.items}
+            selectedPictureId={this.props.homepage.selectedPictureId}
+            actions={this.props.actions}
+            pageId={PageMappings.MAINPAGE}
+            />*/
   render() {
     // eslint-disable-next-line react/jsx-filename-extension
     return (<StyleRoot>
       <div>
-        <PageSwitcher linkAddress={PageMappings.OTHERPAGE} />
-        <PictureSelector
-          items={this.props.homepage.items}
-          selectedPictureId={this.props.homepage.selectedPictureId}
-          actions={this.props.actions}
-          pageId={PageMappings.MAINPAGE}
-          />
-        <PictureGridContainer
-          pictureList={this.props.homepage.pictureList}
+        <PictureGridContainer items={this.props.homepage.items} pictureList={this.props.homepage.pictureList}
           />
       </div>
     </StyleRoot>

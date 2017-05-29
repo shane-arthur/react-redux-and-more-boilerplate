@@ -8,7 +8,7 @@ const socket = io(`http://localhost:3000`);
 export default class VoteSelector extends Component {
 
     _getAdditionIcon() {
-        const image = require('../../../../assets/images/addIcon.jpg');
+        const image = require('../../../../assets/icons/addIcon.jpg');
         return <img src={image} alt="Add Icon" />;
     }
 

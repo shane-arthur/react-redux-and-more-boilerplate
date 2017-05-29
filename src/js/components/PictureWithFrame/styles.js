@@ -6,6 +6,11 @@ export const styles = {
       width: '960px',
       borderRadius: '25px',
     },
+    toolTip: {
+      height: '280px',
+      width: '336px',
+      borderRadius: '25px'
+    },
     icon: {
       height: '100px',
       width: '100px',
@@ -13,6 +18,5 @@ export const styles = {
     }
   },
   wrapper: {
-    textAlign: 'center',
   },
 };

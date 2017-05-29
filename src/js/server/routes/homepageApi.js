@@ -9,7 +9,7 @@ export default function (app) {
     const pictures = picUtil.getSelectedPictures();
     const state = {};
     /* istanbul ignore next */
-    const isConnected = mongoose.connection.readyState === 1 ? true : false;
+    const isConnected = false;
     const errorFallback = () => {
       state.homepage = homepageResponse.homepage;
       state.homepage.selectedPictureId = 0;
