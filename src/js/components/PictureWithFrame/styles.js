@@ -10,6 +10,7 @@ export const styles = {
       height: '280px',
       width: '336px',
       borderRadius: '25px'
+    
     },
     icon: {
       height: '100px',

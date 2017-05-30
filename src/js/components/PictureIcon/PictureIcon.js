@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PictureWithFrame from '../PictureWithFrame/PictureWithFrame';
-import LargePictureIcon from '../LargePictureIcon/LargePictureIcon'
+import LargePictureIcon from '../LargePictureIcon/LargePictureIcon';
+import { styles } from './styles';
 
 export default class PictureIcon extends Component {
 
@@ -16,17 +17,21 @@ export default class PictureIcon extends Component {
 
     _getIconToolTip() {
         if (this.state) {
-            return this.state.hovered ? <LargePictureIcon pictureName={this.props.pictureName} /> : null;
+            return this.state.hovered ? <LargePictureIcon pictureName={this.props.pictureName} selected={this.props.selected} /> : null;
         }
         else {
             return null;
         }
     }
 
+    _getStyleClassName(isSelected){
+        return isSelected ? 'selected' : 'notSelected';
+    }
+
     render() {
         const toolTip = this._getIconToolTip();
         return (
-            <div onClick={this._toggleHover.bind(this, true)} onMouseLeave={this._toggleHover.bind(this, false)} style={{ display: 'inline-block'}}>{toolTip}<PictureWithFrame selectedClass={'icon'} pictureName={this.props.pictureName} /></div>
-        )
+            <div onClick={this._toggleHover.bind(this, true)} onMouseLeave={this._toggleHover.bind(this, false)} style={styles[this._getStyleClassName(this.props.selected)]}>{toolTip}<PictureWithFrame selectedClass={'icon'} pictureName={this.props.pictureName} /></div>
+        );
     }
 }

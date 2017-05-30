@@ -28,7 +28,10 @@ class MainpageContainer extends Component {
     // eslint-disable-next-line react/jsx-filename-extension
     return (<StyleRoot>
       <div>
-        <PictureGridContainer items={this.props.homepage.items} pictureList={this.props.homepage.pictureList}
+        <PictureGridContainer
+          items={this.props.homepage.items}
+          pictureList={this.props.homepage.pictureList}
+          pageId={PageMappings.MAINPAGE}
           />
       </div>
     </StyleRoot>

@@ -10,6 +10,7 @@
     "./assets/images/fredericton.jpg": "http://localhost:8080/dist/c3551f4f7bd82af64a3edc2ece05fa58.jpg",
     "./assets/images/halifax.jpg": "http://localhost:8080/dist/6e37a6cf21c2448d8a3fff14635c017a.jpg",
     "./assets/images/stjohns.jpg": "http://localhost:8080/dist/57f8b48069fc5d46f212ba1c5aa8121e.jpg",
-    "./assets/images/toronto.jpg": "http://localhost:8080/dist/ad3771b3ce84fb08dd35f279a7d245fa.jpg"
+    "./assets/images/toronto.jpg": "http://localhost:8080/dist/ad3771b3ce84fb08dd35f279a7d245fa.jpg",
+    "./assets/images/stamford.jpg": "http://localhost:8080/dist/7c65f75f09f1b644d09a003328f06015.jpg"
   }
 }

@@ -1,5 +1,5 @@
 export const styles = {
     wrapper: {
-        width:'300px'
+        width:'325px'
     }
 };
