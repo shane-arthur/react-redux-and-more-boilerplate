@@ -11,3 +11,5 @@ export const pictureMappings = {
     2: 'calgary',
   },
 };
+
+

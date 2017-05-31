@@ -31,7 +31,9 @@ class MainpageContainer extends Component {
         <PictureGridContainer
           items={this.props.homepage.items}
           pictureList={this.props.homepage.pictureList}
+          pictureMappings={this.props.homepage.pictureMappings}
           pageId={PageMappings.MAINPAGE}
+          onClick = {this.props.actions.setPictureToDisplay}
           />
       </div>
     </StyleRoot>

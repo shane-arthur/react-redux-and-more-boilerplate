@@ -7,6 +7,7 @@ const picUtil = new pictureCounterUtil();
 export default function (app) {
   app.get('/mainpageApi', (req, res) => {
     const pictures = picUtil.getSelectedPictures();
+    const pictureMappings = picUtil.getPictureMappings();
     const state = {};
     /* istanbul ignore next */
     const isConnected = false;
@@ -14,6 +15,7 @@ export default function (app) {
       state.homepage = homepageResponse.homepage;
       state.homepage.selectedPictureId = 0;
       state.homepage.pictureList = pictures;
+      state.homepage.pictureMappings = pictureMappings;
       res.status(200).send(state);
     };
    /* istanbul ignore if  */

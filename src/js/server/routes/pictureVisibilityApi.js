@@ -1,11 +1,7 @@
-import homepage from '../models/homepage';
-import otherpage from '../models/otherpage'
-import { PageMappings } from '../../constants/other-constants/PageMappings'
-import { isConnected } from './utils/checkDbConnection';
 
 
 export default function (app) {
-    app.post('/castVote', (req, res) => {
+    app.post('/setPicture', (req, res) => {
         let statusCode, returnResult = null;
         const pageId = req.body.pageId;
         const pictureId = req.body.pictureId;
@@ -44,9 +40,4 @@ export default function (app) {
         }
         res.status(statusCode).send({ voteCount: returnResult });
     });
-}
-
-/* istanbul ignore next  */
-function getSelectedModel(pageId) {
-    return mappings[pageId] || null;
 }

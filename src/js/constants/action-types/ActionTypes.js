@@ -9,3 +9,4 @@ export const CAST_PICTURE_VOTE_selector = 'CAST_PICTURE_VOTE_selector';
 
 export const CAST_PICTURE_VOTE_receiver = 'CAST_PICTURE_VOTE_receiver';
 
+export const ADD_REMOVE_PICTURES = 'ADD_REMOVE_PICTURES';

@@ -5,10 +5,14 @@ export function setselectedPicture(pageId, pictureId) { // eslint-disable-line i
 }
 
 export function castVoteForPicture(pageId, pictureId, voteCount, socket) {
-  const data = {pageId, pictureId, voteCount, socket};
-   return { type: types.CAST_PICTURE_VOTE_selector, data}
+  const data = { pageId, pictureId, voteCount, socket };
+  return { type: types.CAST_PICTURE_VOTE_selector, data }
 }
 
 export function updateVoteCount(pageId, pictureId) {
-   return { type: types.CAST_PICTURE_VOTE_receiver, pageId, pictureId}
+  return { type: types.CAST_PICTURE_VOTE_receiver, pageId, pictureId }
+}
+
+export function setPictureToDisplay(isSelected, pictureName) {
+  return { type: types.ADD_REMOVE_PICTURES, isSelected, pictureName }
 }

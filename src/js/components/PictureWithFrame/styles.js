@@ -7,7 +7,7 @@ export const styles = {
       borderRadius: '25px',
     },
     toolTip: {
-      height: '280px',
+      height: '300px',
       width: '336px',
       borderRadius: '25px'
     
@@ -15,7 +15,8 @@ export const styles = {
     icon: {
       height: '100px',
       width: '100px',
-      borderRadius: '5px'
+      borderRadius: '5px',
+      margin: '3px 3px 0 3px'
     }
   },
   wrapper: {

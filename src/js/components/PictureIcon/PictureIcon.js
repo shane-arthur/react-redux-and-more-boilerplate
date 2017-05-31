@@ -17,14 +17,19 @@ export default class PictureIcon extends Component {
 
     _getIconToolTip() {
         if (this.state) {
-            return this.state.hovered ? <LargePictureIcon pictureName={this.props.pictureName} selected={this.props.selected} /> : null;
+            return this.state.hovered ?
+                <LargePictureIcon
+                    pictureName={this.props.pictureName}
+                    selected={this.props.selected} onClick={this.props.onClick}
+                    pictureMappings={this.props.pictureMappings} /> :
+                null;
         }
         else {
             return null;
         }
     }
 
-    _getStyleClassName(isSelected){
+    _getStyleClassName(isSelected) {
         return isSelected ? 'selected' : 'notSelected';
     }
 

@@ -12,3 +12,7 @@ export function castVoteForPicture(pageId, pictureId, voteCount, socket) {
 export function updateVoteCount(pageId, pictureId) {
    return { type: types.CAST_PICTURE_VOTE_receiver, pageId, pictureId}
 }
+
+export function setSelectedPicture(onOffToggle, data) {
+  return { type: types.ADD_REMOVE_PICTURES, data }
+}

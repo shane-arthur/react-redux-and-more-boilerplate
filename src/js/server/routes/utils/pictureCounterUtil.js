@@ -10,13 +10,19 @@ export default class pictureCounterUtil {
             }
             else {
                 const pictures = fs.readdirSync(dir);
-               global.__PICTURES__ = pictures;
+                global.__PICTURES__ = pictures;
                 picturesToReturn = pictures;
             }
             return picturesToReturn;
         }
-
+        const getPictureMappings = () => {
+            const pictureMappings = {}
+            for (let i = 0; i < this.pictures.length; i++) {
+                pictureMappings[i] = this.pictures[i];
+            }
+        }
         this.pictures = getPicturesFromDirectory();
+        this.pictureMappings = getPictureMappings();
     }
 
     getSelectedPictures() {
@@ -25,5 +31,9 @@ export default class pictureCounterUtil {
 
     getSelectedPictureCount() {
         return this.pictures.length;
+    }
+
+    getPictureMappings() {
+        return this.picturemappings;
     }
 }
