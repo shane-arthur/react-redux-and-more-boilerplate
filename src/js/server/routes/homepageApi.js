@@ -6,23 +6,21 @@ const picUtil = new pictureCounterUtil();
 
 export default function (app) {
   app.get('/mainpageApi', (req, res) => {
-    const pictures = picUtil.getSelectedPictures();
-    const pictureMappings = picUtil.getPictureMappings();
     const state = {};
+    const picData = picUtil._getPicturesInfo();
     /* istanbul ignore next */
     const isConnected = false;
     const errorFallback = () => {
       state.homepage = homepageResponse.homepage;
       state.homepage.selectedPictureId = 0;
-      state.homepage.pictureList = pictures;
-      state.homepage.pictureMappings = pictureMappings;
+      state.homepage.pictureMappings = picData.pictureMappings;
+      state.homepage.pictureList = picData.pictures;
       res.status(200).send(state);
     };
-   /* istanbul ignore if  */
+    /* istanbul ignore if  */
     if (isConnected) {
       homepage.find().then((result) => {
         state.homepage = result[0].homepage;
-        state.homepage.pictureList = pictures;
         res.send(200).json(state);
       }).catch((error) => {
         console.log(`error fetching data : ${error} - will attempt to get default state from resources`); // eslint-disable-line no-console

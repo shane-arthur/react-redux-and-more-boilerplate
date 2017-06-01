@@ -3,37 +3,28 @@ const dir = "./assets/images/";
 
 export default class pictureCounterUtil {
     constructor() {
-        const getPicturesFromDirectory = () => {
-            let picturesToReturn = null;
+        this.pictures = (() => {
             if (global.__PICTURES__) {
-                picturesToReturn = global.__PICTURES__;
+                return global.__PICTURES__;
             }
             else {
                 const pictures = fs.readdirSync(dir);
                 global.__PICTURES__ = pictures;
-                picturesToReturn = pictures;
+                return pictures;
             }
-            return picturesToReturn;
-        }
-        const getPictureMappings = () => {
-            const pictureMappings = {}
-            for (let i = 0; i < this.pictures.length; i++) {
-                pictureMappings[i] = this.pictures[i];
-            }
-        }
-        this.pictures = getPicturesFromDirectory();
-        this.pictureMappings = getPictureMappings();
+        })();
+
+        this.pictureMappings = (() => {
+            const picMappings = {};
+            this.pictures.forEach((pictures, i) => {
+                picMappings[i] = pictures;
+            });
+            return picMappings;
+        })();
     }
 
-    getSelectedPictures() {
-        return this.pictures;
+    _getPicturesInfo() {
+        return this;
     }
 
-    getSelectedPictureCount() {
-        return this.pictures.length;
-    }
-
-    getPictureMappings() {
-        return this.picturemappings;
-    }
 }

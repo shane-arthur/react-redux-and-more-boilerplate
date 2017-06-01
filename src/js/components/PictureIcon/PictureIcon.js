@@ -20,7 +20,9 @@ export default class PictureIcon extends Component {
             return this.state.hovered ?
                 <LargePictureIcon
                     pictureName={this.props.pictureName}
-                    selected={this.props.selected} onClick={this.props.onClick}
+                    selected={this.props.selected} 
+                    onClick={this.props.onClick}
+                    selectedData = {this.props.selectedData}
                     pictureMappings={this.props.pictureMappings} /> :
                 null;
         }
