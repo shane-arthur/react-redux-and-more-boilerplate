@@ -44,9 +44,7 @@ class MainpageContainer extends Component {
 function
 mapStateToProps(state) {
   return {
-    homepage: state[PageMappings.MAINPAGE],
-    pictureList: state.pictureList,
-    pictureMappings: state.pictureMappings
+    homepage: state[PageMappings.MAINPAGE]
   };
 }
 

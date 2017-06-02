@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ListView from '../../components/ListView/ListView';
 import PictureWithFrame from '../../components/PictureWithFrame/PictureWithFrame';
-import { pictureMappings } from '../../constants/other-constants/pictureMappings';
 import { styles } from './styles';
 
 export default class PictureSelector extends Component {

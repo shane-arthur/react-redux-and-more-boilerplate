@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PictureIcon from '../../components/PictureIcon/PictureIcon';
 import { styles } from './styles';
-import { pictureMappings } from '../../constants/other-constants/PictureMappings';
-
+import { sendData } from '../../data/sendData';
 
 export default class PictureGridContainer extends Component {
 
     _getPictureContainerItems() {
+
         const pictureList = this.props.pictureList;
         const pictureIds = this.props.items.map(item => {
             return item.pictureId;
@@ -17,13 +17,11 @@ export default class PictureGridContainer extends Component {
                 return item.pictureId;
             });
 
-            const isSelected = pictureIds.indexOf(Number(pictureId)) >= 0;
-            return isSelected;
+            return pictureIds.indexOf(Number(pictureId)) >= 0;
         };
 
         const translatePictureId = (pictureName) => {
-            const pictureList = pictureMappings[this.props.pageId];
-            return findObjectByValue(pictureList, pictureName, 9999);
+            return findObjectByValue(this.props.pictureMappings, pictureName, NaN);
         };
 
         const findObjectByValue = (collection, value, defaultValue = null) => {
@@ -40,13 +38,22 @@ export default class PictureGridContainer extends Component {
             return { content: pictureName, pictureId }
         }
 
+        const onCheckboxClick = (payload) => {
+            sendData('/endpoint', payload).then(response => {
+                //do nothing
+            }).catch(error => {
+                //catch error
+            })
+        };
+
         return this.props.pictureList.map(picture => {
             const pictureName = picture.split(".jpg")[0];
             const pictureId = translatePictureId(pictureName);
             const isPicSelected = doesPicExist(pictureId);
 
             return <PictureIcon
-                selectedData={formSelectedPicturePayload(this.props.pictureName, this.props.pictureId)}
+                selectedData={formSelectedPicturePayload(pictureName, pictureId)}
+                onClick = {onCheckboxClick}
                 key={pictureName} selectedClass={'icon'}
                 pictureName={pictureName}
                 selected={isPicSelected}

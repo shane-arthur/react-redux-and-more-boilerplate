@@ -3,17 +3,17 @@ export const otherpageResponse = {
   "otherpage": {
     "items": [
       {
-        "pictureId": 0,
+        "pictureId": 1,
         "content": "Fredericton",
         "voteCount": 0
       },
       {
-        "pictureId": 1,
+        "pictureId": 5,
         "content": "St. John's",
         "voteCount": 0
       },
       {
-        "pictureId": 2,
+        "pictureId": 0,
         "content": "Calgary",
         "voteCount": 0
       }

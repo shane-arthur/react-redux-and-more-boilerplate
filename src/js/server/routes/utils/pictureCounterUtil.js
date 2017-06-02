@@ -13,18 +13,18 @@ export default class pictureCounterUtil {
                 return pictures;
             }
         })();
-
-        this.pictureMappings = (() => {
-            const picMappings = {};
-            this.pictures.forEach((pictures, i) => {
-                picMappings[i] = pictures;
-            });
-            return picMappings;
-        })();
     }
 
-    _getPicturesInfo() {
+    _getPictureData() {
+         if (typeof this.pictureMappings === 'undefined') {
+            this.pictureMappings = (() => {
+                const pictureMappings = {};
+                this.pictures.forEach((value, i) => {
+                    pictureMappings[i] = value.split(".jpg")[0];
+                });
+                return pictureMappings;
+            })();
+        }
         return this;
     }
-
 }

@@ -16,7 +16,7 @@ export default class LargePictureIcon extends Component {
                 <SelectedRadioButton
                     selected={this.props.selected}
                     onClick={this.props.onClick}
-                    selectedData = {this.props}
+                    selectedData = {this.props.selectedData}
                     />
             </div>
         </div>);

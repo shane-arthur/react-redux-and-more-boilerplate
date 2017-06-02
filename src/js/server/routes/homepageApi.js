@@ -7,14 +7,15 @@ const picUtil = new pictureCounterUtil();
 export default function (app) {
   app.get('/mainpageApi', (req, res) => {
     const state = {};
-    const picData = picUtil._getPicturesInfo();
+    const picData = picUtil._getPictureData();
+    console.log(picData);
     /* istanbul ignore next */
     const isConnected = false;
     const errorFallback = () => {
       state.homepage = homepageResponse.homepage;
       state.homepage.selectedPictureId = 0;
-      state.homepage.pictureMappings = picData.pictureMappings;
       state.homepage.pictureList = picData.pictures;
+      state.homepage.pictureMappings  = picData.pictureMappings;
       res.status(200).send(state);
     };
     /* istanbul ignore if  */

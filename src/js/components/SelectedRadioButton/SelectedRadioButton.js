@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
+import { sendData } from '../../data/dataFetcher';
 
 
 export default class SelectedRadioButton extends Component {
-
-    _onClick() {
-        const data = {};
-        return this.props.onClick(this.props.selected, this.props.name)
-    }
 
     render() {
         return (
