@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PictureIcon from '../../components/PictureIcon/PictureIcon';
 import { styles } from './styles';
-import { sendData } from '../../data/sendData';
+import { sendData } from '../../data/dataFetcher';
 
 export default class PictureGridContainer extends Component {
 
@@ -13,10 +13,6 @@ export default class PictureGridContainer extends Component {
         });
 
         const doesPicExist = (pictureId) => {
-            const pictureIds = this.props.items.map(item => {
-                return item.pictureId;
-            });
-
             return pictureIds.indexOf(Number(pictureId)) >= 0;
         };
 
@@ -53,12 +49,12 @@ export default class PictureGridContainer extends Component {
 
             return <PictureIcon
                 selectedData={formSelectedPicturePayload(pictureName, pictureId)}
-                onClick = {onCheckboxClick}
+                onClick={onCheckboxClick}
                 key={pictureName} selectedClass={'icon'}
                 pictureName={pictureName}
                 selected={isPicSelected}
                 onClick={this.props.onClick}
-                />
+            />
         }, this);
     }
 
