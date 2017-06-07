@@ -43,7 +43,6 @@ export default function (app) {
             statusCode = 400;
             returnResult = ++voteCount;
         }
-        console.log(`returned result : ${returnResult}`)
         res.status(statusCode).send({ voteCount: returnResult });
     });
 }
