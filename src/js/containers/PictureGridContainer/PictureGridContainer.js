@@ -42,20 +42,25 @@ export default class PictureGridContainer extends Component {
             })
         };
 
-        return this.props.pictureList.map(picture => {
-            const pictureName = picture.split(".jpg")[0];
-            const pictureId = translatePictureId(pictureName);
-            const isPicSelected = doesPicExist(pictureId);
+        if (this.props.pictureList) {
+            return this.props.pictureList.map(picture => {
+                const pictureName = picture.split(".jpg")[0];
+                const pictureId = translatePictureId(pictureName);
+                const isPicSelected = doesPicExist(pictureId);
 
-            return <PictureIcon
-                selectedData={formSelectedPicturePayload(pictureName, pictureId)}
-                onClick={onCheckboxClick}
-                key={pictureName} selectedClass={'icon'}
-                pictureName={pictureName}
-                selected={isPicSelected}
-                onClick={this.props.onClick}
-            />
-        }, this);
+                return <PictureIcon
+                    selectedData={formSelectedPicturePayload(pictureName, pictureId)}
+                    onClick={onCheckboxClick}
+                    key={pictureName} selectedClass={'icon'}
+                    pictureName={pictureName}
+                    selected={isPicSelected}
+                    onClick={this.props.onClick}
+                />
+            }, this);
+        }
+        else {
+            return null
+        }
     }
 
     render() {

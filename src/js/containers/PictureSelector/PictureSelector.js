@@ -7,11 +7,13 @@ export default class PictureSelector extends Component {
 
 
   _getSelectedPicture() {
-    const selectedPic = this.props.pictureMappings[this.props.selectedPictureId];
-    if (selectedPic) {
-      return <PictureWithFrame pictureName={selectedPic} selectedClass={'largeFrame'} />; // eslint-disable-line react/jsx-filename-extension, max-len
+    if (this.props.pictureMappings) {
+      const selectedPic = this.props.pictureMappings[this.props.selectedPictureId];
+      if (selectedPic) {
+        return <PictureWithFrame pictureName={selectedPic} selectedClass={'largeFrame'} />; // eslint-disable-line react/jsx-filename-extension, max-len
+      }
     }
-    
+
     return null;
   }
 
@@ -24,7 +26,7 @@ export default class PictureSelector extends Component {
         actions={this.props.actions}
         pageId={this.props.pageId}
         selectedId={this.props.selectedPictureId}
-        />);
+      />);
 
     return (
       <div>

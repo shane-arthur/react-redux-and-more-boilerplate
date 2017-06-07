@@ -91,7 +91,8 @@
     ],
     "globals": {
       "__DEVELOPMENT__": false,
-      "__PICTURES__": null
+      "__PICTURES__": null,
+      "__MONGO_CONNECTED__": false
     },
     "coverageDirectory": "coverage",
     "collectCoverageFrom": [

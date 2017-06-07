@@ -3,7 +3,7 @@ export const dbConfig = {
     mongoDb : {
         //fill this out with your provider (or local)
         username: 'shane.arthur',
-        'password':'letstest12',
+        'password':'Dallas4mavs8',
         'url' : 'ds011261.mlab.com:11261',
         'dbName' : 'shanewebsite'
     }
