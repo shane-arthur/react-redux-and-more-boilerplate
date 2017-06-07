@@ -23,7 +23,7 @@ if (window.__REDUX_STATE__) {
 
 const store = configureStore(state);
 store.subscribe(() => {
-  saveState(sharedUtils.extractPropertyAndApply(store.getState(), ['homepage', 'items'], sharedUtils.orderItemsByVoteCount));
+  saveState(store.getState());
 });
 ReactDOM.render(( // eslint-disable-next-line react/jsx-filename-extension
   <Provider store={store} radiumConfig={{ userAgent: navigator.userAgent }}>

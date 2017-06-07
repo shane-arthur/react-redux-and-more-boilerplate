@@ -13,22 +13,11 @@ export const sharedUtils = {
             return firstItem.voteCount < secondItem.voteCount;
         });
     },
-    extractPropertyAndApply(state, properties, operation) {
-        const newProperty = (() => {
-            let extractedValue = null;
-            properties.forEach(value => {
-                if (extractedValue === null) {
-                    extractedValue = state[value];
-                }
-                else{
-                    extractedValue = extractedValue[value]
-                }
-            });
-           return operation(extractedValue);
-            
-        })();
-
-        state.homepage.items = newProperty;
+    extractPropertyAndApply(state, pageId, property, operation) {
+        const propertyToAdjust = state[pageId][property];
+        if (propertyToAdjust && typeof propertyToAdjust !== 'undefined') {
+            state[pageId][property] = operation(propertyToAdjust);
+        }
         return state;
     }
 };

@@ -2,6 +2,7 @@ import homepage from '../models/homepage';
 import { homepageResponse } from '../../constants/fallback-data/homepage.config';
 import mongoose from 'mongoose'
 import pictureCounterUtil from './utils/pictureCounterUtil';
+import { sharedUtils } from '../../sharedUtils/sharedUtils';
 const picUtil = new pictureCounterUtil();
 
 export default function (app) {
@@ -12,6 +13,7 @@ export default function (app) {
     const performOtherStateOperations = (state, page) => {
       state[page].pictureList = picData.pictures;
       state[page].pictureMappings = picData.pictureMappings;
+      sharedUtils.extractPropertyAndApply(state, 'homepage', 'items', sharedUtils.orderItemsByVoteCount);
     }
     const errorFallback = () => {
       state.homepage = homepageResponse.homepage;
