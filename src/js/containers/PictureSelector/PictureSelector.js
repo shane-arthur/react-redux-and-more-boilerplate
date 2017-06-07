@@ -6,7 +6,7 @@ import { styles } from './styles';
 export default class PictureSelector extends Component {
 
   _getSelectedPicture() {
-    const selectedPic = pictureMappings[this.props.pageId][this.props.selectedPictureId];
+    const selectedPic = this.props.pictureMappings[this.props.selectedPictureId];
     if (selectedPic) {
       return <PictureWithFrame pictureName={selectedPic} selectedClass={'largeFrame'} />; // eslint-disable-line react/jsx-filename-extension, max-len
     }

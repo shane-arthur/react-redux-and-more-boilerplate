@@ -1,15 +1,20 @@
 import otherpage from '../models/otherpage';
 import { otherpageResponse } from '../../constants/fallback-data/otherpage.config';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import pictureCounterUtil from './utils/pictureCounterUtil';
+const picUtil = new pictureCounterUtil();
 
 export default function (app) {
   app.get('/otherpageApi', (req, res) => {
     const state = {};
+    const picData = picUtil._getPictureData();
     /* istanbul ignore next */
-    const isConnected = mongoose.connection.readyState === 1 ? true : false;
+    const isConnected = false;
     const errorFallback = () => {
       state.otherpage = otherpageResponse.otherpage;
       state.otherpage.selectedPictureId = 0;
+      state.otherpage.pictureList = picData.pictures;
+      state.otherpage.pictureMappings = picData.pictureMappings;
       res.status(200).send(state);
     };
    /* istanbul ignore if  */

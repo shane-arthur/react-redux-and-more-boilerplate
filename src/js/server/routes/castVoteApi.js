@@ -1,17 +1,18 @@
 import homepage from '../models/homepage';
 import otherpage from '../models/otherpage'
 import { PageMappings } from '../../constants/other-constants/PageMappings'
-import { isConnected } from './utils/checkDbConnection';
+//import { isConnected } from './utils/checkDbConnection';
 
 
 export default function (app) {
     app.post('/castVote', (req, res) => {
         let statusCode, returnResult = null;
+        const isConnected = false;
         const pageId = req.body.pageId;
         const pictureId = req.body.pictureId;
         let voteCount = req.body.voteCount;
         /* istanbul ignore if  */
-        if (isConnected()) {
+        if (isConnected) {
             const selectedModel = getSelectedModel(pageId);
             if (selectedModel) {
                 selectedModel.find(modelToUpdate => {
@@ -42,6 +43,7 @@ export default function (app) {
             statusCode = 400;
             returnResult = ++voteCount;
         }
+        console.log(`returned result : ${returnResult}`)
         res.status(statusCode).send({ voteCount: returnResult });
     });
 }

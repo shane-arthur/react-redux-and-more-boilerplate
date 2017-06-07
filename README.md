@@ -30,8 +30,9 @@ $ npm start
 
 ## Other Notes
 
-Development in progress: Currently an appliation which allows for the user to select and vote among which cities they enjoyed visiting/living in the best.
+Development in progress: Currently an application which allows for the user to select and vote among which cities they enjoyed visiting/living in the best.
 
-TODO - Passport js integration to authenticate users and customize their experience
+TODO - Passport js integration to authenticate users and customize their experience 
+	 - remove console.log calls and integrate morgan
 
 

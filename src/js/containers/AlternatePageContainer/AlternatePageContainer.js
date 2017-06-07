@@ -26,6 +26,7 @@ class AlternatePageContainer extends Component {
           selectedPictureId={this.props.otherpage.selectedPictureId}
           actions= {this.props.actions}
           pageId={PageMappings.OTHERPAGE}
+          pictureMappings={this.props.otherpage.pictureMappings}
         />
       </div>
     </StyleRoot>
