@@ -45,6 +45,7 @@ export default function (app) {
           res.render('index', { html, reduxState });
         });
       }
+      
       function getData() {
         return new Promise((resolve, reject) => {
           const { query, params } = renderProps; // eslint-disable-line no-unused-vars

@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import createRoutes from './routes/index';
 import { saveState } from './store/utils/localStorage';
+import { sharedUtils } from './sharedUtils/sharedUtils';
 
 let state = {};
 
@@ -22,12 +23,12 @@ if (window.__REDUX_STATE__) {
 
 const store = configureStore(state);
 store.subscribe(() => {
-  saveState(store.getState());
+  saveState(sharedUtils.extractPropertyAndApply(store.getState(), ['homepage', 'items'], sharedUtils.orderItemsByVoteCount));
 });
 ReactDOM.render(( // eslint-disable-next-line react/jsx-filename-extension
   <Provider store={store} radiumConfig={{ userAgent: navigator.userAgent }}>
     <StyleRoot>
-      { createRoutes(browserHistory) }
+      {createRoutes(browserHistory)}
     </StyleRoot>
   </Provider>), document.getElementById('main'));
 

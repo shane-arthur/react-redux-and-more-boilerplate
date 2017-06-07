@@ -8,6 +8,7 @@ import Radium, { StyleRoot } from 'radium'; // eslint-disable-line import/first
 import * as ViewActions from '../../actions';
 import PictureSelector from '../PictureSelector/PictureSelector';
 import PageSwitcher from '../../components/PageSwitcher/PageSwitcher';
+import PictureGridContainer from '../PictureGridContainer/PictureGridContainer';
 
 @Radium // eslint-disable-line
 class AlternatePageContainer extends Component {
@@ -21,13 +22,22 @@ class AlternatePageContainer extends Component {
     return (<StyleRoot>
       <div>
         <PageSwitcher linkAddress={''} />
-        <PictureSelector
-          items={this.props.otherpage.items}
-          selectedPictureId={this.props.otherpage.selectedPictureId}
-          actions= {this.props.actions}
-          pageId={PageMappings.OTHERPAGE}
-          pictureMappings={this.props.otherpage.pictureMappings}
-        />
+        <div style={{ textAlign: 'center' }}>
+          <PictureSelector
+            items={this.props.otherpage.items}
+            selectedPictureId={this.props.otherpage.selectedPictureId}
+            actions={this.props.actions}
+            pageId={PageMappings.OTHERPAGE}
+            pictureMappings={this.props.otherpage.pictureMappings}
+          />
+          <PictureGridContainer
+            items={this.props.otherpage.items}
+            pictureList={this.props.otherpage.pictureList}
+            pictureMappings={this.props.otherpage.pictureMappings}
+            pageId={PageMappings.OTHERPAGE}
+            onClick={this.props.actions.setPictureToDisplay}
+          />
+        </div>
       </div>
     </StyleRoot>
     );
@@ -49,4 +59,4 @@ mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps,
-mapDispatchToProps)(AlternatePageContainer);
+  mapDispatchToProps)(AlternatePageContainer);

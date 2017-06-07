@@ -8,8 +8,10 @@ export default function otherpage(state = {}, action) {
     case SET_SELECTED_PICTURE_otherpage:
       return (setSelectedCardType(state, action.pictureId)); // eslint-disable-line no-use-before-define, max-len
     case CAST_PICTURE_VOTE_receiver:
-      return (castVote(state, action.data))
+      return (castVote(state, action.pageId, action.pictureId));
     default:
       return state;
   }
 }
+
+

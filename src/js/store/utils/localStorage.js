@@ -11,8 +11,11 @@ export const loadState = () => {
   }
 };
 
-export const saveState = (state) => {
+export const saveState = (state, alternativeFn = null) => {
   try {
+    if (alternativeFn) {
+      state = alternativeFn(state);
+    }
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState); // eslint-disable-line no-undef
   } catch (error) {

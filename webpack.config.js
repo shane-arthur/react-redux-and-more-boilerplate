@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
+// note the different casing here for variables
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack/isomorphic.config'));
 var devServerPort = require('./src/js/config/index.config.js').serverConfig.webpackDevServerPort;
 

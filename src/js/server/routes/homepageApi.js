@@ -12,7 +12,7 @@ export default function (app) {
     const isConnected = false;
     const errorFallback = () => {
       state.homepage = homepageResponse.homepage;
-      state.homepage.selectedPictureId = 0;
+      state.homepage.selectedPictureId = 2;
       state.homepage.pictureList = picData.pictures;
       state.homepage.pictureMappings = picData.pictureMappings;
       res.status(200).send(state);

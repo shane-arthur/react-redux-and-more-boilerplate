@@ -16,7 +16,6 @@ export default class ListView extends Component {
         });
     }
     
-
     _toggleHover(pictureId, isOnEnter) {
         this.setState({
             hovered: isOnEnter ? pictureId : null
