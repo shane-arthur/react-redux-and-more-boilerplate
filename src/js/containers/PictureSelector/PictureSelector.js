@@ -13,7 +13,6 @@ export default class PictureSelector extends Component {
         return <PictureWithFrame pictureName={selectedPic} selectedClass={'largeFrame'} />; // eslint-disable-line react/jsx-filename-extension, max-len
       }
     }
-
     return null;
   }
 

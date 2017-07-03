@@ -5,6 +5,7 @@ export function setSelectedCardType(state, selectedPictureId) {
 export function castVote(state, pageId, pictureId) {
     if (Object.keys(state).length > 0) {
         const items = state.items.map(item => {
+            console.log(item);
             if (item.pictureId === pictureId) {
                 ++item.voteCount;
             }

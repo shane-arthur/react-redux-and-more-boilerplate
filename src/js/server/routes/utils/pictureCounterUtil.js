@@ -25,6 +25,8 @@ export default class pictureCounterUtil {
                 return pictureMappings;
             })();
         }
+        console.log('choppers and pistols');
+        console.log(this);
         return this;
     }
 }

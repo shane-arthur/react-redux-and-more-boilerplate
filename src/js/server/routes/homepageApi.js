@@ -9,33 +9,12 @@ export default function (app) {
   app.get('/mainpageApi', (req, res) => {
     const state = {};
     const picData = picUtil._getPictureData();
-    /* istanbul ignore next */
-    const performOtherStateOperations = (state, page) => {
-      state[page].pictureList = picData.pictures;
-      state[page].pictureMappings = picData.pictureMappings;
-      sharedUtils.extractPropertyAndApply(state, 'homepage', 'items', sharedUtils.orderItemsByVoteCount);
-    }
-    const errorFallback = () => {
-      state.homepage = homepageResponse.homepage;
-      state.homepage.selectedPictureId = 2;
-      performOtherStateOperations(state, 'homepage');
+    homepage.find().then((result) => {
+      let homepage = result[0].homepage;
+      state.homepage = {...homepage, pictureList : picData.pictures, pictureMappings : picData.pictureMappings}
       return res.status(200).send(state);
-    };
-    /* istanbul ignore if  */
-    if (global.__MONGO_CONNECTED__) {
-      homepage.find().then((result) => {
-        state.homepage = result[0].homepage;
-        performOtherStateOperations(state, 'homepage');
-        return res.status(200).send(state);
-      }).catch((error) => {
-        console.log(`error fetching data : ${error} - will attempt to get default state from resources`); // eslint-disable-line no-console
-        errorFallback();
-      });
-    }
-    else {
-      errorFallback();
-    }
+    }).catch((error) => {
+      console.log(`error fetching data : ${error} - will attempt to get default state from resources`); // eslint-disable-line no-console
+    });
   });
 }
-
-

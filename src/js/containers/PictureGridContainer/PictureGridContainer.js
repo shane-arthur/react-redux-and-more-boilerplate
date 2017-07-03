@@ -30,8 +30,8 @@ export default class PictureGridContainer extends Component {
             return keyForValue;
         }
 
-        const formSelectedPicturePayload = (pictureName, pictureId) => {
-            return { content: pictureName, pictureId }
+        const formSelectedPicturePayload = (pictureName, pictureId, pageId) => {
+            return { content: pictureName, pictureId, pageId }
         }
 
         const onCheckboxClick = (payload) => {
@@ -43,13 +43,14 @@ export default class PictureGridContainer extends Component {
         };
 
         if (this.props.pictureList) {
+            const pageId = this.props.pageId;
             return this.props.pictureList.map(picture => {
                 const pictureName = picture.split(".jpg")[0];
                 const pictureId = translatePictureId(pictureName);
                 const isPicSelected = doesPicExist(pictureId);
 
                 return <PictureIcon
-                    selectedData={formSelectedPicturePayload(pictureName, pictureId)}
+                    selectedData={formSelectedPicturePayload(pictureName, pictureId, pageId)}
                     onClick={onCheckboxClick}
                     key={pictureName} selectedClass={'icon'}
                     pictureName={pictureName}
